@@ -1,0 +1,66 @@
+def sum_to(n)
+  return nil if n < 0
+  return 0 if n < 1
+  n + sum_to(n-1)
+end  
+
+p "-------Sum to n-------"
+# Test Cases
+p  sum_to(5)  == 15 # => returns 15
+p  sum_to(1)  == 1 # => returns 1
+p  sum_to(9)  == 9 # => returns 45
+p  sum_to(-8)  == nil # => returns nil
+
+def add_numbers(arr)
+  return nil if arr.empty?
+  return arr[0] if arr.length == 1
+  arr.first + add_numbers(arr.drop(1))
+end  
+
+p "-------Add numbers-------"
+p  add_numbers([1,2,3,4]) == 10 # => returns 10
+p  add_numbers([3]) == 3 # => returns 3
+p  add_numbers([-80,34,7]) == -39 # => returns -39
+p  add_numbers([]) == nil # => returns nil
+
+def factorial(n)
+  return if n < 0 
+  return 1 if n < 1
+  n*factorial(n-1)
+end  
+
+def gamma_fnc(n)
+  factorial(n-1)
+end
+
+p "-------Gamma function-------"
+p  gamma_fnc(0)  == nil # => returns nil
+p  gamma_fnc(1)  == 1 # => returns 1
+p  gamma_fnc(4)  == 6 # => returns 6
+p  gamma_fnc(8)  == 5040 # => returns 5040
+
+def ice_cream_shop(arr, el)
+  return false if arr.empty?
+  return arr.first == el if arr.length == 1 
+  arr.first == el || ice_cream_shop(arr.drop(1), el)
+end  
+
+p "-------ice_cream_shop-------"
+p  ice_cream_shop(['vanilla', 'strawberry'], 'blue moon')  == false # => returns false
+p  ice_cream_shop(['pistachio', 'green tea', 'chocolate', 'mint chip'], 'green tea') == true # => returns true
+p  ice_cream_shop(['cookies n cream', 'blue moon', 'superman', 'honey lavender', 'sea salt caramel'], 'pistachio')  == false # => returns false
+p  ice_cream_shop(['moose tracks'], 'moose tracks') == true # => returns true
+p  ice_cream_shop([], 'honey lavender')  == false # => returns false
+
+def  reverse(str)
+  return "" if str.empty?
+  return str if str.length == 1 
+  str[-1] + reverse(str[0...str.length-1])
+end
+p "-------reverse-------"
+p  reverse("house")  == "esuoh" # => "esuoh"
+p  reverse("dog") == "god" # => "god"
+p  reverse("atom") == "mota" # => "mota"
+p  reverse("q") == "q" # => "q"
+p  reverse("id") == "di"# => "di"
+p  reverse("") == "" # => ""
