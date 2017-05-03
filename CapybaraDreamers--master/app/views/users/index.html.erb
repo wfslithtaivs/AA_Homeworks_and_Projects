@@ -1,0 +1,8 @@
+<img src="http://www.fuzzytoday.com/wp-content/uploads/2014/05/PIbKpeE.jpg" alt="happy after bar!">
+
+
+<form action= "<%= session_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="delete">
+  <input id="sign_out" type="submit" value="sign_out">
+</form>
