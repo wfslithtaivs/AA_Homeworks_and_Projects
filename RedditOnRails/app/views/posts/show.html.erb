@@ -1,0 +1,43 @@
+<div class="border">
+    <h1><%=@post.title%></h1>
+    <div class="small-border" <b=""><b>Link to discuss:</b>
+    <%= @post.url%>
+  </div>
+    <p><%= button_to "Edit Post", edit_post_url(@post), :method => :get%></p>
+    <p><%= button_to "Delete Post", post_url(@post), :method => :delete%></p>
+    <h4> Hillarious comments from lodded in users: </h4>
+    <ul>
+      <%@comments.each do |comment|%>
+          <li>
+                <p><%=comment.content%> :
+                <br>
+                <a href="#answer">Comment a comments</a>
+                <%=button_to "Delete Comment", comment_url(comment.id), :method => :delete%>
+                  <ol>
+                    <%comment.child_comments.each do |child|%>
+                        <p> Child of <%=comment.content%>----><%=child.content%>:</p>
+                          <a href="#answer?comment_id=<%=child.id%>">Comment a child</a>
+                        <%=button_to "Delete Comment", comment_url(child.id), :method => :delete%>
+                      <br>
+                  <%end%>
+                </ol>
+          </li>
+      <%end%>
+    </ul>
+
+    <h4> Join the fun - add comment here: </h4>
+    <form id="answer" class="" action="<%=comments_url%>" method="post">
+      <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+        <textarea name="comment[content]" rows="8" cols="80"></textarea>
+      <input type="hidden" name="comment[post_id]" value="<%=@post.id%>">
+
+      <select name="comment[parent_comment_id]">
+        <option value="" name = "" disabled selected>---Just an option-----</option>
+          <%@comments.each do |comment|%>
+            <option value="<%=comment.id%>"><%=comment.content%></option>
+          <%end%>
+      </select>
+
+      <input type="submit" name="" value="Add Comment">
+    </form>
+</div>

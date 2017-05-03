@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RedditOnRails</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <%if logged_in?%>
+  <%= current_user.username%>
+    <%= button_to "Sign Out", session_url, :method => :delete%>
+  <%else%>
+    <%=button_to "Sign In", session_url%>
+    <%=button_to "Sign Up", new_user_url%>
+  <%end%>
+
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

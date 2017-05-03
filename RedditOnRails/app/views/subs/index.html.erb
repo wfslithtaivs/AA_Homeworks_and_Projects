@@ -1,0 +1,15 @@
+<div class="border">
+<h1>Hot Topics</h1>
+
+<div class="small-border" <b=""><b>Links to discuss:</b>
+      <br>
+  <% @subs.each do |sub|%>
+    <br>
+    <li>
+    <%=link_to "#{sub.title} : #{sub.description}", sub_url(sub), :method => :get%> : Posts (<%=sub.posts.count%>)
+    <br>
+    <%=button_to "Not Hot Anymore", subs_url, :method => :delete%>
+  </li>
+  <%end%>
+</div>
+</div>

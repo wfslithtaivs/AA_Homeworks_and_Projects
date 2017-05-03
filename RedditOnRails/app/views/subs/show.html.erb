@@ -1,0 +1,11 @@
+<p>Subs#show : Find me in app/views/subs/show.html.erb</p>
+
+<h1><%=@sub.title%></h1>
+<h3><%=@sub.description%></h3>
+<p><b><%=link_to "Add Post", new_post_url%></b></p>
+<ol>
+<%@sub.posts.each do |post|%>
+  <li> <%= link_to "#{post.title} : #{post.url}", post_url(post)%> </li>
+  <br>
+<%end%>
+</ol>
