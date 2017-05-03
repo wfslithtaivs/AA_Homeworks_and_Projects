@@ -1,0 +1,25 @@
+p "Input your email: "
+email = gets.chomp
+p "What do you want to do?"
+p "0. Create shortened URL"
+p "1. Visit shortened URL"
+
+# Create user
+new_user = User.find_by(email: email)
+
+input = gets.chomp
+if input == 0
+  p "Type in your long url"
+  print "> "
+  long_url = gets.chomp
+  x = ShortenedUrl.random_code(user1, long_url)
+  print "Short url is: "
+  print x.short_url
+else
+  p "Type in the shortened URL"
+  print "> "
+  x = ShortenedUrl.find_by(short_url: gets.chomp)
+  p x.long_url
+end
+
+p "Goodbye!"
