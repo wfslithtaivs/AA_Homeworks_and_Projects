@@ -1,0 +1,38 @@
+<!-- <h1><%#= cat.name %></h1>
+
+<h3>Age: <%#= cat.age%></h3>
+<h3>Color: <%#= cat.color%></h3>
+<h3>Sex: <%#= cat.sex%></h3>
+
+<p>
+  <%#= cat.description %>
+</p> -->
+
+
+<p> -----<b> <%= cat.name %> </b>-----</p>
+<table>
+  <tr>
+    <th>Age: </th>
+    <th>Color: </th>
+    <th>Sex: </th>
+    <th>Description </th>
+  </tr>
+  <tr>
+    <td><%= cat.age%></td>
+    <td><%= cat.color%></td>
+    <td><%= cat.sex%></td>
+    <td><%= cat.description%></td>
+  </tr>
+</table>
+
+
+
+
+
+<%# if action == :index %>
+
+  <!-- <form method="get" action="cats/<%=cat.id %>">
+      <button type="submit">Cat Info</button>
+  </form> -->
+
+<%# end %>

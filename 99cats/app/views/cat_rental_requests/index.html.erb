@@ -1,0 +1,11 @@
+<h1>Which Cats Do You Want to Rent?!?!?!?!?!?!</h1>
+
+<p> Cat list size : <%= @catquests.count%></p>
+
+<ul>
+  <%= @catquests.each do |rental| %>
+    <%= rental.cat_id %>
+    <%= rental.start_date  %>
+    <%= rental.end_date %>
+  <% end %>
+</ul>

@@ -1,0 +1,7 @@
+<%= render @cat %>
+
+<%= render @cat.rentals.sort_by &:start_date %>
+
+<form method="get" action="cats_url">
+    <button type="submit">Cat List</button>
+</form>

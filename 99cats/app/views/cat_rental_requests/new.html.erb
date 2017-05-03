@@ -1,0 +1,25 @@
+<h1>Add request to request List!</h1>
+<!-- <%#= render 'form', action: :new, request: @request %> -->
+
+<form action="/cat_rental_requests" method="post">
+
+  <label for="color"><b>Choose 1 cat ---> </b></label>
+
+  <select id="cat_id" name="catquest[cat_id]">
+  <option disabled = "selected"> -- Please Select -- </option>
+  <% Cat.all.each do |cat|%>
+    <option value="<%=cat.id%>"> <%=cat.name%> </option>
+  <%end%>
+  </select>
+
+  <br>  <br>
+  <label for="start_date"><b>Start date ---> </b></label>
+  <input id="start_date" type="date" name="catquest[start_date]" value= <%= Time.now%>>
+  <br>  <br>
+
+  <label for="end_date"><b>End date ---> </b></label>
+  <input id="end_date" type="date" name="catquest[end_date]" value= <%= Time.now + 1.day%>>
+  <br>  <br>
+
+  <input type="submit" value="Create request" >
+</form>

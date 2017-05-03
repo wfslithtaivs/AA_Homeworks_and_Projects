@@ -1,0 +1,12 @@
+<h1>Cats Cats Cats</h1>
+
+<p> Cat list size : <%= @cats.count%></p>
+
+
+<ol>
+  <% @cats.each_with_index do |cat, i| %>
+    <li> <a href="<%= ("cats/"+ cat.id.to_s)%>"><%= cat.name %></a> </li>
+    <br>
+  <% end %>
+
+</ol>
