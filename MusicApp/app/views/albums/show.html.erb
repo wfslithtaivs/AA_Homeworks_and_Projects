@@ -1,0 +1,12 @@
+<h1>Welcome new album in our library! </h1>
+<p> Name is <b><%= @album.title %></b> </p>
+<p> Belongs_to this band <b><%= @album.band.name %></b> </p>
+<p> Year <b><%= @album.year %></b> </p>
+<p> Number of songs <b><%= @album.tracks.count %></b> </p>
+
+<%= link_to "Band Page", band_url(@album.band.id) %>
+<br><br>
+<% @album.tracks.each do |track| %>
+  <%= link_to track.title, track_url(track.id) %>
+  <br><br>
+<% end %>

@@ -1,0 +1,27 @@
+<h2> Create new album </h2>
+
+<form action = "<%=albums_url%>" method = "post" >
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+
+  <label for="title" value ="Album title">Album Title</label>
+  <input type="text" name="album[title]" value="" placeholder="Insert title">
+  <br><br>
+
+  <label for="year" value="Year">Year</label>
+  <input type="number" name="album[year]" min="1900" max="2100">
+  <br><br>
+
+  <label for="band" value="Band">Band</label>
+  <select name="album[band_id]">
+    <%@bands.each do |band|%>
+      <option  value ="<%=band.id%>"> <%= band.name%> </option>
+    <% end %>
+  </select>
+  <br><br>
+
+  <label for="album type" value="Album Type">Album Type</label><br>
+  <input type="radio" name="album[album_type]" value="Studio"> Studio<br>
+  <input type="radio" name="album[album_type]" value="Live"> Live<br>
+
+  <input type="Submit" name="" value="Create new album">
+</form>

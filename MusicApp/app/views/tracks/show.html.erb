@@ -1,0 +1,11 @@
+<h1>Welcome new track in our library!</h1>
+
+<p>Track title <%=@track.title%><p>
+<p>Track type <%=@track.track_type%><p>
+<p>Want some lyrics?
+    <textarea name="name" rows="8" cols="80">
+      <%= @track.lyrics%>
+    </textarea>
+</p>
+
+<%= link_to "Album", album_url(@track.album.id) %>

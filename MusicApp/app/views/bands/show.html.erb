@@ -1,0 +1,12 @@
+<h1> Hiii , <%= @band.name%> !</h1>
+
+<%= link_to "Bands home page", bands_url%>
+<br><br>
+<%@band.albums.each do |album| %>
+
+<%= link_to album.title, album_url(album.id)%>
+
+<br><br>
+<% end %>
+
+<%= link_to "All Bands", bands_url %>
